@@ -1,0 +1,49 @@
+Assuming we have 6 stores [Store1, Store2, Store3, Store4, Store5, Store6]  maintained in ------------ Store table
+Also we have list of product (Assuming we have 6 total) with bar code[1111, 2222, 3333, 4444, 5555, 6666] in ---------- Products table .
+
+
+
+1. Prizy workers walk into a stores and enter product details using below api:
+
+		curl -X POST \
+		  http://localhost:8080/v1/productLoader \
+		  -H 'Content-Type: application/json' \
+		  -H 'Postman-Token: e0378a50-837b-40a1-a699-1984dc377df4' \
+		  -H 'cache-control: no-cache' \
+		  -d '{
+			"store":"Store6",
+			"barCode":"6666",
+			"price":35,
+			"notes":"Tea"
+		}'
+		
+		
+2. Once all product details entered by Prizy workers we can browse the list of products, or search a product using below API
+
+		curl -X GET \
+		  'http://localhost:8080/v1/listProduct?barCode=1111' \
+		  -H 'Content-Type: application/json' \
+		  -H 'Postman-Token: c729aa26-7307-4642-a585-d3d100f0f9e1' \
+		  -H 'cache-control: no-cache'						
+
+
+3. We Can click in individual product and look for future details as below.
+
+ Bar code
+ Product description
+ Average price
+ Lowest Price
+ Highest Price
+ Ideal Price
+ Number of prices collected
+
+		This is the api to access the use case.
+
+		curl -X GET \
+		  http://localhost:8080/v1/6666/productViewer \
+		  -H 'Content-Type: application/json' \
+		  -H 'Postman-Token: 142341f4-2d1d-486d-8705-d05c1e359cd4' \
+		  -H 'cache-control: no-cache'		  
+		  
+		  
+		  
