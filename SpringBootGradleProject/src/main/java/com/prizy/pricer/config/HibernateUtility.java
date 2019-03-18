@@ -46,12 +46,10 @@ public class HibernateUtility {
 		
 		@Bean
 		public SessionFactory getSessionFactory(DataSource dataSource) {
-			System.out.println("---------------------------22222-------------------------------");
-			LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
-			
+	
+			LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);			
 			builder.addProperties(getHibernateProperties());
 			builder.scanPackages("com.prizy.pricer.dao");
-//			System.out.println("-------builder.buildSessionFactory()---------"+builder.buildSessionFactory().isOpen());
 			return builder.buildSessionFactory();
 			
 		}
